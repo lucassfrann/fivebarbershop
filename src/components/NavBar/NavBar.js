@@ -1,12 +1,12 @@
 import react from "react";
-import './navBar.css';
+import './NavBar.css';
 
-export default function navBar() {
+export default function NavBar() {
     return (
     <header className='header'>
         <div className='header-container'>
             <div className='header-logo'>
-                <a href='index.html' className='logo'></a>
+                <a href='index.html' className='logo'>Five barber</a>
             </div>
             <nav className='header-nav'>
                 <a href='#'> Encontranos </a>
@@ -14,7 +14,7 @@ export default function navBar() {
                 <a href='#l'>Nuestros precios</a>
                 <a href='#'>Productos</a>
             </nav>
-        </div>    
+        </div>
     </header>
 
     )
