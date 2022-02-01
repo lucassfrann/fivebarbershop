@@ -1,0 +1,41 @@
+.itemlist-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.item-container {
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.item-container p {
+  width: 50px;
+  text-align: center;
+  justify-content: center;
+}
+
+.quantity-container {
+  display: flex;
+  border: solid 2px black;
+  border-radius: 6px;
+  padding: 5px;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-quantity {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  font-size: 10px;
+  padding: 3px;
+  border-radius: 6px;
+}
