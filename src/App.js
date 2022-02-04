@@ -6,13 +6,16 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import CartWidget from './components/CartWidget/CartWidget';
 
 function App() {
+  function onAdd() {
+    console.log('Producto añadido')
+  }
   return (
     <div className='app'>
       <Header />
       <NavBar />
-      <ItemListContainer stock={10} initial={1}/>
-      <ItemListContainer stock={10} initial={1}/>
-      <ItemListContainer stock={10} initial={1}/>
+      <ItemListContainer stock={10} initial={1} onAdd={onAdd}/>
+      <ItemListContainer stock={10} initial={1} onAdd={onAdd}/>
+      <ItemListContainer stock={10} initial={1} onAdd={onAdd}/>
     </div>
   )
 }

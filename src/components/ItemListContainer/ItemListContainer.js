@@ -3,7 +3,7 @@ import './ItemListContainer.css'
 
 
 
-export default function ItemListContainer( {stock, initial} ) {
+export default function ItemListContainer( {stock, initial, onAdd} ) {
 
     const [quantity, setQuantity] = useState(initial - 1)
     const [conditional, setConditional] = useState(true)
@@ -48,7 +48,7 @@ export default function ItemListContainer( {stock, initial} ) {
                     {/* <button id="button-discount" onClick={() => changeQuantity(setConditional(false))}>-</button> */}
                 </div>
                 </div>
-                <div className="button-addtocart">
+                <div className="button-addtocart" onClick={() => onAdd()}>
                     <button>
                         Agregar al carrito
                     </button>
