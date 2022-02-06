@@ -13,9 +13,7 @@ function App() {
     <div className='app'>
       <Header />
       <NavBar />
-      <ItemListContainer stock={10} initial={1} onAdd={onAdd}/>
-      <ItemListContainer stock={10} initial={1} onAdd={onAdd}/>
-      <ItemListContainer stock={10} initial={1} onAdd={onAdd}/>
+      <ItemListContainer/>
     </div>
   )
 }
