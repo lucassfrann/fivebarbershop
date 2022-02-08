@@ -1,7 +1,7 @@
 import react, {useState, useEffect} from "react";  
 import './ItemCount.css'
 
-export default function ItemCoun({stock, initial, onAdd}) {
+export default function ItemCount({stock, initial, onAdd}) {
     const [quantity, setQuantity] = useState(initial - 1)
     function addQuantity() {
         if (quantity < stock)
