@@ -4,7 +4,7 @@ import Cart from '../../assets/images/Cart.png'
 
 export default function CartWidget() {
     return (
-        <div className="product-navbar">
+        <div >
             <img id='cart-image' src={Cart}/>
         </div>
     )

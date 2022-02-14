@@ -1,9 +1,9 @@
 import react from "react";
 import './ItemDetail.css'
 import ItemCount from "../ItemCount/ItemCount";
+import { useState } from "react";
 
 export default function ItemDetail({product, onAdd}) {
-    console.log(product)
     return (
         <div>
             <p className="product-title">{product.title}</p>

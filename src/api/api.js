@@ -5,6 +5,7 @@ const products = [{
     price: 950,
     brand: 'Mr blonde',
     description: 'Aca va la descripcion',
+    category: 'style',
     id: 1,
 },
 {
@@ -14,6 +15,7 @@ const products = [{
     price: 500,
     brand: 'Alta moda',
     description:'Aca va la descripcion',
+    category: 'shampoo',
     id: 2,
 },
 {
@@ -23,6 +25,7 @@ const products = [{
     price: 930,
     brand: 'Mr blonde',
     description:'Aca va la descripcion',
+    category: 'style',
     id: 3
 },
 ]
