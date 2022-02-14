@@ -5,12 +5,15 @@ import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import {cartContext} from './context/cartContext';
 
 function App() {
   function onAdd() {
     console.log('Producto añadido')
   }
   return (
+    <cartContext.Provider>
+      {console.log(cartContext)}
     <BrowserRouter>
     <div className='app'>
       <Header />
@@ -28,12 +31,13 @@ function App() {
 
         <Route 
         path='/product/:productId'
-        element={<ItemDetailContainer/>}  
+        element={<ItemDetailContainer onAdd={onAdd}/>}  
         />
 
       </Routes>
     </div>
     </BrowserRouter>
+    </cartContext.Provider>
   )
 }
 
