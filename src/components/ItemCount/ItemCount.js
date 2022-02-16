@@ -1,8 +1,8 @@
 import react, {useState, useEffect} from "react";  
 import './ItemCount.css'
 
-export default function ItemCount({stock, initial, onAdd}) {
-    const [quantity, setQuantity] = useState(initial - 1)
+export default function ItemCount({stock, initial, onAddProduct}) {
+    
     function addQuantity() {
         if (quantity < stock)
         setQuantity(quantity + 1)
@@ -12,6 +12,10 @@ export default function ItemCount({stock, initial, onAdd}) {
         if (quantity > 0) {
             setQuantity(quantity - 1)
         }
+    }
+
+    function addToCart(quantity) {
+        onAddProduct(quantity);
     }
 
     return (
@@ -30,7 +34,7 @@ export default function ItemCount({stock, initial, onAdd}) {
                 {/* <button id="button-discount" onClick={() => changeQuantity(setConditional(false))}>-</button> */}
             </div>
             </div>
-            <div className="button-addtocart" onClick={() => onAdd()}>
+            <div className="button-addtocart" onClick={() => addToCart(quantity)}>
                 <button>
                     Agregar al carrito
                 </button>
