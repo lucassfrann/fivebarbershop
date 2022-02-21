@@ -3,6 +3,8 @@ import './ItemListContainer.css'
 import { getItems } from "../../api/api";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../../firebase";
 
 
 
@@ -16,11 +18,9 @@ export default function ItemListContainer( {onAdd} ) {
             if (!category) {
                 setProducts(products)
             } else {
-                console.log(category)
                     const itemFilter = products.filter((product)=> {
                         return product.category === category
                     })
-                    console.log(itemFilter)
                     setProducts(itemFilter)      
             } 
             })

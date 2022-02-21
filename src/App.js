@@ -6,13 +6,15 @@ import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import {cartContext} from './context/cartContext';
+import CartContextProvider from './context/cartContext';
+import Cart from './components/Cart/Cart';
 
 function App() {
   function onAdd() {
     console.log('Producto añadido')
   }
   return (
-    <cartContext.Provider>
+    <CartContextProvider>
       {console.log(cartContext)}
     <BrowserRouter>
     <div className='app'>
@@ -34,10 +36,15 @@ function App() {
         element={<ItemDetailContainer onAdd={onAdd}/>}  
         />
 
+        <Route
+        path='/cart'
+        element={<Cart/>}
+        />
+
       </Routes>
     </div>
     </BrowserRouter>
-    </cartContext.Provider>
+    </CartContextProvider>
   )
 }
 

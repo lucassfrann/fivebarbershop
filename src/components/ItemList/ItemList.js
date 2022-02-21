@@ -10,7 +10,6 @@ export default function ItemList({products, onAdd}){
         <div className="itemlist-container">
             {
              products.map( function(product){
-                 console.log(product)
                  return(
                   <div key={product.id}>
                    <Item key={product.id} product={product} onAdd={onAdd}  />

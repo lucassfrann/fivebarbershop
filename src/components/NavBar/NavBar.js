@@ -11,7 +11,7 @@ export default function NavBar() {
             <div className="product-category">
                 <p>Categorias:</p>
                 <Link to={"/category/shampoo"}><p>Shampoo</p></Link>
-                <Link to={"/category/style"}><p>Style</p></Link>
+                <Link to={"/category/Style"}><p>Style</p></Link>
             </div>
             <CartWidget />
         </div>
