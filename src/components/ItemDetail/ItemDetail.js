@@ -21,7 +21,7 @@ export default function ItemDetail({product}) {
             <p className="product-title">{product.title}</p>
             <p className="product-brand">{product.brand}</p>
             <img className="product-img" src={product.image}/>
-            <p className="product-price">{product.price}</p>
+            <p className="product-price">${product.price}</p>
             <p className="product-description">{product.description}</p>
             {
                 quantity <= 0?

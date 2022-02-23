@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from "react";
+import react, { useState, useEffect, useMemo } from "react";
 import './ItemListContainer.css'
 import { getItems } from "../../api/api";
 import ItemList from "../ItemList/ItemList";
@@ -24,6 +24,7 @@ export default function ItemListContainer( {onAdd} ) {
                     setProducts(itemFilter)      
             } 
             })
+        
     }, [category])
 
     return (

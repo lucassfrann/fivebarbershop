@@ -9,6 +9,7 @@
   text-align: center;
   margin: 200px;
   margin-top: 50px;
+  border: 0.5px solid black;
 }
 
 .categorys {
@@ -27,9 +28,17 @@
   justify-content: space-around;
   padding: 5px;
   margin: 10px;
+  border-bottom: 0.5px solid black;
 }
 
 .product img {
   max-width: 100px;
   max-height: 100px;
+}
+
+.cart-button {
+  display: flex;
+  margin: 10px;
+  padding: 5px;
+  justify-content: space-around;
 }

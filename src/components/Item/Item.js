@@ -10,7 +10,7 @@ export default function Item({product, onAdd}) {
             <div className='product-container' key={product.id}>
             <img className="product-img" src={product.image}/>
             <p className="product-title">{product.title}</p>
-            <p className="product-price">{product.price}</p>
+            <p className="product-price">${product.price}</p>
             </div>
         </Link>
         

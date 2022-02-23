@@ -23,16 +23,17 @@ export default function ItemCount({stock, initial, onAddProduct}) {
         <div className="count-container">
             <div className="quantity-container">
             <div className="button-quantity">
-                <button id="button-add" onClick={() => addQuantity()}>+</button>
-                {/* <button id="button-add" onClick={() => changeQuantity(setConditional(true))}>+</button> */}
-            </div>
+                <button id='button-discount' onClick={() => removeQuantity()}>-</button>
+                {/* <button id="button-discount" onClick={() => changeQuantity(setConditional(false))}>-</button> */}
+            </div>    
             <div className="quantity">
                 <p>{quantity}</p>
             </div>
             <div className="button-quantity">
-                <button id='button-discount' onClick={() => removeQuantity()}>-</button>
-                {/* <button id="button-discount" onClick={() => changeQuantity(setConditional(false))}>-</button> */}
+                <button id="button-add" onClick={() => addQuantity()}>+</button>
+                {/* <button id="button-add" onClick={() => changeQuantity(setConditional(true))}>+</button> */}
             </div>
+           
             </div>
             <div className="button-addtocart" onClick={() => addToCart(quantity)}>
                 <button>
