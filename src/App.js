@@ -28,6 +28,11 @@ function App() {
         />
 
         <Route
+        path='/endbuy'
+        element={<BuyerForm/>}
+        />
+
+        <Route
         path='/category/:category'
         element={<ItemListContainer onAdd={onAdd}/>}
         />

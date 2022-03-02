@@ -6,14 +6,7 @@ import { Link } from "react-router-dom";
 import BuyerForm from "../BuyerForm/BuyerForm";
 
 const CartContent = memo(() => {
-    const {cart, removeProduct, clearCart, totalQuantity} = useContext(cartContext)
-    const [finalprice, setFinalPrice] = useState(0)
-
-    useEffect(() => {
-      let totalprice = cart.map(product => product.price * product.quantity).reduce((a, b) => a + b, 0)
-      setFinalPrice(totalprice)
-      console.log('me renderizo')  
-    },[cart])
+    const {cart, removeProduct, clearCart, totalQuantity, finalPrice} = useContext(cartContext)
 
     return (
     <div>
@@ -34,10 +27,12 @@ const CartContent = memo(() => {
         )            
           })
       }
-      <div className="finalprice"> Precio total : {finalprice}</div>
+      <div className="finalprice"> Precio total : {finalPrice}</div>
       <div className="quantityProducts">{totalQuantity}</div>
       <div className='cart-button'> 
+        <Link to={'/endbuy'}>
         <button> Terminar compra </button>
+        </Link>
         <button onClick={()=> {clearCart()}}>Vaciar carrito</button>
       </div>
     </div>

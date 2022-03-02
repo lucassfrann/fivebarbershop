@@ -1,4 +1,4 @@
-import { getDocs, collection } from "firebase/firestore"
+import { getDocs, collection, getFirestore } from "firebase/firestore"
 import { db } from "../firebase"
 
 const promesa = new Promise(function(resolve, reject) {

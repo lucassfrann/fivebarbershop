@@ -3,12 +3,19 @@ import {createContext, useState, useEffect} from "react";
 export const cartContext = createContext([]);
 
 export default function CartContextProvider({children}) {
-
+    const [finalPrice, setFinalPrice] = useState(0)
     const [cart, setCart] = useState([]);
     const [totalQuantity, setTotalQuantity] = useState(0)
+
     useEffect (() => {
         finalQuantity(cart)
     }, [cart])
+
+    useEffect(() => {
+        let totalprice = cart.map(product => product.price * product.quantity).reduce((a, b) => a + b, 0)
+        setFinalPrice(totalprice)
+        console.log('me renderizo')  
+      },[cart])
 
     const isOnCart = (id) => {
         const verification = cart.some((product) => product.id == id)
@@ -53,7 +60,7 @@ export default function CartContextProvider({children}) {
    
 
     return(
-        <cartContext.Provider value={{cart, addToCart, removeProduct, clearCart, totalQuantity}}>
+        <cartContext.Provider value={{cart, addToCart, removeProduct, clearCart, totalQuantity, finalPrice}}>
             {children}
         </cartContext.Provider>
     )
