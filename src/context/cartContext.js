@@ -1,10 +1,14 @@
-import {createContext, useState} from "react";
+import {createContext, useState, useEffect} from "react";
 
 export const cartContext = createContext([]);
 
 export default function CartContextProvider({children}) {
 
     const [cart, setCart] = useState([]);
+    const [totalQuantity, setTotalQuantity] = useState(0)
+    useEffect (() => {
+        finalQuantity(cart)
+    }, [cart])
 
     const isOnCart = (id) => {
         const verification = cart.some((product) => product.id == id)
@@ -20,21 +24,28 @@ export default function CartContextProvider({children}) {
     }
 
     const addToCart = (quantity, product) => {
-
     if (isOnCart(product.id)) {
         console.log('Producto duplicado')
         addQuantity(quantity, product )
       
     } else {
         setCart([...cart, {...product, quantity}]);
+
     }   
 }
+
+    const finalQuantity = (cart, totalQuantity)=> {
+        let cartquantity = cart.map(product => totalQuantity =+ product.quantity ).reduce((a, b) => a + b, 0)
+        console.log(cartquantity)
+        setTotalQuantity(cartquantity)
+    }
 
     const addQuantity = (quantity, product) => {
         const cartCopy = [...cart]
         cartCopy.forEach(item => {
             if (item.id == product.id) {
-                item.quantity += quantity
+                item.quantity += quantity 
+                finalQuantity(cart)
             }
         });
     }
@@ -42,7 +53,7 @@ export default function CartContextProvider({children}) {
    
 
     return(
-        <cartContext.Provider value={{cart, addToCart, removeProduct, clearCart}}>
+        <cartContext.Provider value={{cart, addToCart, removeProduct, clearCart, totalQuantity}}>
             {children}
         </cartContext.Provider>
     )

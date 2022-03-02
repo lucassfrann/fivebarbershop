@@ -8,6 +8,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import {cartContext} from './context/cartContext';
 import CartContextProvider from './context/cartContext';
 import Cart from './components/Cart/Cart';
+import BuyerForm from './components/BuyerForm/BuyerForm';
 
 function App() {
   function onAdd() {

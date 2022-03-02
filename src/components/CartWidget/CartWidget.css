@@ -3,3 +3,8 @@
   width: 40px;
   margin-right: 20px;
 }
+
+.cartwidget {
+  display: flex;
+  flex-direction: row;
+}

@@ -2,9 +2,11 @@ import react from "react";
 import './CartContent.css'
 import { useContext, useEffect, useState, memo} from "react";
 import { cartContext } from "../../context/cartContext";
+import { Link } from "react-router-dom";
+import BuyerForm from "../BuyerForm/BuyerForm";
 
 const CartContent = memo(() => {
-    const {cart, removeProduct, clearCart} = useContext(cartContext)
+    const {cart, removeProduct, clearCart, totalQuantity} = useContext(cartContext)
     const [finalprice, setFinalPrice] = useState(0)
 
     useEffect(() => {
@@ -33,7 +35,8 @@ const CartContent = memo(() => {
           })
       }
       <div className="finalprice"> Precio total : {finalprice}</div>
-      <div className='cart-button'>
+      <div className="quantityProducts">{totalQuantity}</div>
+      <div className='cart-button'> 
         <button> Terminar compra </button>
         <button onClick={()=> {clearCart()}}>Vaciar carrito</button>
       </div>
