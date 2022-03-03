@@ -3,7 +3,6 @@ import './CartContent.css'
 import { useContext, useEffect, useState, memo} from "react";
 import { cartContext } from "../../context/cartContext";
 import { Link } from "react-router-dom";
-import BuyerForm from "../BuyerForm/BuyerForm";
 
 const CartContent = memo(() => {
     const {cart, removeProduct, clearCart, totalQuantity, finalPrice} = useContext(cartContext)

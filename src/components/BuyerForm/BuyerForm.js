@@ -4,13 +4,16 @@ import { useEffect, useState } from "react";
 import { db } from "../../firebase";
 import { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
+import './BuyerForm.css'
+import { Link } from "react-router-dom";
 
 export default function BuyerForm() {
-    const {cart, finalPrice} = useContext(cartContext)
+    const {cart, finalPrice, clearCart} = useContext(cartContext)
     const [name, setName] = useState("")
     const [adress, setAdress] = useState("")
     const [email, setEmail] = useState("")
     const [number, setNumber] = useState(0)
+    const [finish, setFinish] = useState(false)
 
     function nameChange(event) {
         setName(event.target.value)
@@ -40,17 +43,55 @@ export default function BuyerForm() {
         }
 
         addDoc(ordersCollection, newOrder)
+        .then(doc => {
+            console.log("logrado", doc.id)
+            clearCart()
+            setFinish(true)
+        }
+        )
+        .catch(error => {
+            console.log(error)
+        });
+
     }
 
     return (
-        <div className="form-conteiner">
-            <form onSubmit={submit}className="form">
-            <input value={name} onChange={nameChange} className="input-order" placeholder="Nombre completo"></input>
-            <input value={adress} onChange={adressChange} className="input-order" placeholder="Direccion"></input>
-            <input value={email} onChange={emailChange} className="input-order" placeholder="Email"></input>
-            <input value={number} onChange={numberChange} className="input-order" placeholder="Telefono"></input>
-            <button type="submit">Enviar</button>
-            </form>
+        <div className="main-container">
+            { 
+             !finish ? <div>{cart.map((product) => {
+                return (
+                    <>
+                        <h1>Finaliza tu compra</h1>
+                        <div className="product" key={product.id}>
+                            <img src={product.image}/>
+                            <h3>{product.title}</h3>
+                            <p>${product.price}</p>
+                            <p>x{product.quantity}</p>   
+                            <p>{finalPrice}</p>
+                        </div>
+                        <div className="form-conteiner">
+                        <form onSubmit={submit}className="form">
+                        <input value={name} onChange={nameChange} className="input-order" placeholder="Nombre completo"></input>
+                        <input value={adress} onChange={adressChange} className="input-order" placeholder="Direccion"></input>
+                        <input value={email} onChange={emailChange} className="input-order" placeholder="Email"></input>
+                        <input value={number} onChange={numberChange} className="input-order" placeholder="Telefono"></input>
+                        <button type="submit">Enviar</button>
+                        </form>
+                    </div>
+                    </>  
+                )            
+                  }) }</div>             
+                  
+                  : 
+                  <div>
+                  <label> Compra finalizada, Muchas gracias por elegirnos</label> 
+                  <Link to={'/'}>
+                  <a>Volver al inicio</a>
+                  </Link>
+                  </div>
+            }
         </div>
     )
 }
+
+
