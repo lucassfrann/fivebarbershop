@@ -27,7 +27,6 @@ const CartContent = memo(() => {
           })
       }
       <div className="finalprice"> Precio total : {finalPrice}</div>
-      <div className="quantityProducts">{totalQuantity}</div>
       <div className='cart-button'> 
         <Link to={'/endbuy'}>
         <button> Terminar compra </button>
