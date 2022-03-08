@@ -1,20 +1,27 @@
 import react from "react";
 import './NavBar.css';
-import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
+import CartWidget from "../CartWidget/CartWidget";
 
 export default function NavBar() {
     return (
-        <div className="product-navbar">
-        <h3>Nuestros productos</h3>
-        <div className="category-cart">
-            <div className="product-category">
-                <p>Categorias:</p>
-                <Link to={"/category/shampoo"}><p>Shampoo</p></Link>
-                <Link to={"/category/Style"}><p>Style</p></Link>
+    <header className='header'>
+        <div className='header-container'>
+            <div className='header-logo'>
+                <Link to={'/'} style={{ textDecoration: 'none' }}>
+                <h1 className="logo">Five Barber</h1>
+                </Link>   
             </div>
-            <CartWidget />
+                <div className='header-nav'>
+                <div className="category-cart">
+                    <div className="product-category">
+                        <Link to={"/category/shampoo"}><p>Shampoos</p></Link>
+                        <Link to={"/category/Style"}><p>Styles products</p></Link>
+                    </div>
+                    <CartWidget />
+                </div> 
+            </div>
         </div>
-        </div>
+    </header>
     )
 }

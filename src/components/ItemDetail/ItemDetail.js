@@ -17,12 +17,14 @@ export default function ItemDetail({product}) {
     }
 
     return (
-        <div>
+        <div className="detail-container">
+            <img className="product-img" src={product.image}/>
+            <div className="info-container">
             <p className="product-title">{product.title}</p>
             <p className="product-brand">{product.brand}</p>
-            <img className="product-img" src={product.image}/>
             <p className="product-price">${product.price}</p>
             <p className="product-description">{product.description}</p>
+            </div>
             {
                 quantity <= 0?
                 <ItemCount key={product.id} stock={10} initial={1} onAddProduct={onAddProduct}/> 

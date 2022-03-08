@@ -7,11 +7,8 @@
 }
 
 .product-container {
-  margin: 5px;
-  padding: 15px;
   font-family: Oswald;
-  border: 1px solid rgb(90, 88, 88);
-  border-radius: 2.5%;
+  text-align: left;
 }
 
 .product-img {
@@ -22,4 +19,10 @@
 
 .product-title {
   font-size: 20px;
+  color: rgb(71, 26, 7);
+  font-weight: bold;
+}
+
+.product-price {
+  color: black;
 }

@@ -6,7 +6,7 @@ import ItemCount from '../ItemCount/ItemCount'
 export default function Item({product, onAdd}) {
     
     return (
-        <Link to={`/product/${product.id}`}>
+        <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
             <div className='product-container' key={product.id}>
             <img className="product-img" src={product.image}/>
             <p className="product-title">{product.title}</p>

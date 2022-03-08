@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
@@ -19,7 +18,6 @@ function App() {
       {console.log(cartContext)}
     <BrowserRouter>
     <div className='app'>
-      <Header />
       <NavBar /> 
       <Routes>
         <Route 

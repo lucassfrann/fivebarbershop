@@ -14,6 +14,7 @@ export default function BuyerForm() {
     const [email, setEmail] = useState("")
     const [number, setNumber] = useState(0)
     const [finish, setFinish] = useState(false)
+    const [idOrder, setidOrder] = useState()
 
     function nameChange(event) {
         setName(event.target.value)
@@ -27,6 +28,7 @@ export default function BuyerForm() {
     function numberChange(event) {
         setNumber(event.target.value)
     }
+
   
     function submit(event) {
         event.preventDefault()
@@ -47,6 +49,7 @@ export default function BuyerForm() {
             console.log("logrado", doc.id)
             clearCart()
             setFinish(true)
+            setidOrder(doc.id)
         }
         )
         .catch(error => {
@@ -69,22 +72,25 @@ export default function BuyerForm() {
                             <p>x{product.quantity}</p>   
                             <p>{finalPrice}</p>
                         </div>
-                        <div className="form-conteiner">
-                        <form onSubmit={submit}className="form">
-                        <input value={name} onChange={nameChange} className="input-order" placeholder="Nombre completo"></input>
-                        <input value={adress} onChange={adressChange} className="input-order" placeholder="Direccion"></input>
-                        <input value={email} onChange={emailChange} className="input-order" placeholder="Email"></input>
-                        <input value={number} onChange={numberChange} className="input-order" placeholder="Telefono"></input>
-                        <button type="submit">Enviar</button>
-                        </form>
-                    </div>
+                      
                     </>  
-                )            
-                  }) }</div>             
+                ) 
+                }) }     
+                <div className="form-conteiner">
+                <form onSubmit={submit}className="form">
+                <input value={name} required onChange={nameChange} className="input-order" placeholder="Nombre completo"></input>
+                <input value={adress} required onChange={adressChange} className="input-order" placeholder="Direccion"></input>
+                <input value={email} required onChange={emailChange} className="input-order" placeholder="Email"></input>
+                <input value={number} required onChange={numberChange} className="input-order" placeholder="Telefono"></input>
+                <button type="submit">Enviar</button>
+                </form>
+                </div>      
+                </div>             
                   
                   : 
                   <div>
                   <label> Compra finalizada, Muchas gracias por elegirnos</label> 
+                  <p> El id de su compra es {idOrder}</p>
                   <Link to={'/'}>
                   <a>Volver al inicio</a>
                   </Link>

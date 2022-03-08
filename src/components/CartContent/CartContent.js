@@ -19,7 +19,7 @@ const CartContent = memo(() => {
                     <h3>{product.title}</h3>
                     <p>${product.price}</p>
                     <p>x{product.quantity}</p>
-                    <button onClick={() => {removeProduct(product.id)}}>
+                    <button className="button" id="remove" onClick={() => {removeProduct(product.id)}}>
                         Eliminar producto
                     </button>    
                 </div>  
@@ -29,9 +29,9 @@ const CartContent = memo(() => {
       <div className="finalprice"> Precio total : {finalPrice}</div>
       <div className='cart-button'> 
         <Link to={'/endbuy'}>
-        <button> Terminar compra </button>
+        <button className="button" id="addtocart"> Terminar compra </button>
         </Link>
-        <button onClick={()=> {clearCart()}}>Vaciar carrito</button>
+        <button className="button" id="remove" onClick={()=> {clearCart()}}>Vaciar carrito</button>
       </div>
     </div>
     </div>)
