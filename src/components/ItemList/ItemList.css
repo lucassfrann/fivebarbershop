@@ -1,14 +1,28 @@
 .itemlist-container {
   display: flex;
-  margin: 10px;
+  background-color: rgb(241, 245, 245);
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
   text-align: center;
+  justify-content: center;
+  font-family: Oswald;
+  font-display: bold;
+  font-size: 25px;
+  background-color: rgb(241, 245, 245);
+}
+
+.list-container {
+  display: flex;
   flex-direction: row;
-  justify-content: space-around;
 }
 
 .product-container {
   font-family: Oswald;
   text-align: left;
+  padding: 5px;
 }
 
 .product-img {

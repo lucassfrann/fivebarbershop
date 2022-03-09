@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './Item.css' ;
 import ItemCount from '../ItemCount/ItemCount'
 
-export default function Item({product, onAdd}) {
+export default function Item({product}) {
     
     return (
         <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>

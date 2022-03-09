@@ -37,4 +37,6 @@ const CartContent = memo(() => {
     </div>)
 }, (oldProp, newProp) => oldProp.cart.length === newProp.cart.length)
 
+
+
 export default CartContent

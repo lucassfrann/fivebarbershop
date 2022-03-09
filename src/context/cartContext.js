@@ -14,7 +14,7 @@ export default function CartContextProvider({children}) {
     useEffect(() => {
         let totalprice = cart.map(product => product.price * product.quantity).reduce((a, b) => a + b, 0)
         setFinalPrice(totalprice)
-        console.log('me renderizo')  
+        console.log(finalPrice)  
       },[cart])
 
     const isOnCart = (id) => {
@@ -32,7 +32,6 @@ export default function CartContextProvider({children}) {
 
     const addToCart = (quantity, product) => {
     if (isOnCart(product.id)) {
-        console.log('Producto duplicado')
         addQuantity(quantity, product )
       
     } else {
@@ -43,7 +42,6 @@ export default function CartContextProvider({children}) {
 
     const finalQuantity = (cart, totalQuantity)=> {
         let cartquantity = cart.map(product => totalQuantity =+ product.quantity ).reduce((a, b) => a + b, 0)
-        console.log(cartquantity)
         setTotalQuantity(cartquantity)
     }
 

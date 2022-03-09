@@ -11,7 +11,6 @@ export default function ItemDetail({product}) {
     const {addToCart} = useContext(cartContext)
 
     function onAddProduct(quantity) {
-        console.log(quantity)
         setQuantity(quantity)
         addToCart(quantity, product)
     }

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
@@ -8,6 +7,7 @@ import {cartContext} from './context/cartContext';
 import CartContextProvider from './context/cartContext';
 import Cart from './components/Cart/Cart';
 import BuyerForm from './components/BuyerForm/BuyerForm';
+import Footer from './components/Footer/Footer';
 
 function App() {
   function onAdd() {
@@ -46,6 +46,7 @@ function App() {
         />
 
       </Routes>
+      <Footer/>
     </div>
     </BrowserRouter>
     </CartContextProvider>

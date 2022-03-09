@@ -7,19 +7,13 @@ import {useContext} from "react"
 export default function CartWidget() {
     const {totalQuantity, cart} = useContext(cartContext)
     return (
-        <div >
-            { cart.length > 0 ? 
+        <div >  
                 <Link to={'/cart'}>
                 <div className='cartwidget'>
                 <img id='cart-image' src={Cart}/>
                 <p>{totalQuantity}</p>
                 </div>
-                </Link>
-
-                :
-
-                <></>
-            }  
+                </Link>        
         </div>
     )
 }
