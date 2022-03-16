@@ -21,26 +21,33 @@
   justify-content: center;
 }
 
+.quantity {
+  margin: 25px;
+}
+
 .quantity-container {
+  background-color: #fff;
   display: flex;
-  border: solid 2px black;
   border-radius: 6px;
-  padding: 5px;
-  margin: 5px;
   justify-content: center;
   align-items: center;
+  margin: 10px;
+  height: 34px;
+  width: 143px;
 }
 
-.button-quantity {
-  display: flex;
-  justify-content: center;
-  height: 20px;
+.button-quantity button {
   font-size: 10px;
-  padding: 3px;
-  border-radius: 6px;
+  border: solid 1px;
+  background: none;
+  border-radius: 20%;
 }
 
-/* CSS */
+.button-quantity button:hover {
+  cursor: pointer;
+  background-color: rgb(176, 181, 185);
+}
+
 .button-addtocart button {
   appearance: none;
   background-color: black;

@@ -1,4 +1,4 @@
-import react, {useState, useEffect} from "react";  
+import react, {useState} from "react";  
 import './ItemCount.css'
 
 export default function ItemCount({stock, initial, onAddProduct}) {
@@ -33,7 +33,6 @@ export default function ItemCount({stock, initial, onAddProduct}) {
                 <button id="button-add" onClick={() => addQuantity()}>+</button>
                 {/* <button id="button-add" onClick={() => changeQuantity(setConditional(true))}>+</button> */}
             </div>
-           
             </div>
             <div className="button-addtocart" onClick={() => addToCart(quantity)}>
                 <button>

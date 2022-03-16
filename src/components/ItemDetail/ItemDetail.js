@@ -17,19 +17,19 @@ export default function ItemDetail({product}) {
 
     return (
         <div className="detail-container">
-            <img className="product-img" src={product.image}/>
-            <div className="info-container">
-            <p className="product-title">{product.title}</p>
-            <p className="product-brand">{product.brand}</p>
-            <p className="product-price">${product.price}</p>
-            <p className="product-description">{product.description}</p>
-            </div>
-            {
+            <img className="product-img" src={product.image}/> 
+                <div className="info-container">
+                <h1>{product.title}</h1>
+                <p className="product-brand">{product.brand}</p>
+                <p className="product-description">{product.description}</p>
+                <p className="product-price">${product.price}</p>
+                {
                 quantity <= 0?
-                <ItemCount key={product.id} stock={10} initial={1} onAddProduct={onAddProduct}/> 
+                <ItemCount key={product.id} stock={product.stock} initial={1} onAddProduct={onAddProduct}/> 
                 :
                 <Link to={'/cart'}> Ir al carrito</Link>           
-            }
+                }
+                </div>
         </div>
     )
 }

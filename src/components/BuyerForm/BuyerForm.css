@@ -3,4 +3,40 @@
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  min-height: 500px;
+}
+
+.form-container {
+  display: flex;
+  padding: 5px;
+  margin: 5px;
+  min-height: 500px;
+  justify-content: center;
+  align-items: top;
+}
+
+.form-container input {
+  background-color: #5c5d64;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  padding: 4px 20px 0;
+  border: solid 1px #2f2f2f;
+  margin: 5px;
+}
+
+.form-button {
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  outline: 0;
+  text-align: center;
+  width: 100%;
 }

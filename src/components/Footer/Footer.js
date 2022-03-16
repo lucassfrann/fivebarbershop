@@ -17,22 +17,6 @@ export default function footer() {
                         </ul>
                     </nav>
                 </div>
-                <div className="footer-logo">
-                    <a href="#"> 
-                        <img src="Imagenes/logo.jpg" alt="Logo Five Barber"/>
-                    </a>
-                </div>
-                <div className="footer-contact">
-                        <h1>Contactanos</h1>
-                        <a href="">
-                            <img src="Imagenes/instagram.png"/>
-                        </a>
-                        <a href="">
-                            <img src="Imagenes/tiktok.png"/>
-                        </a>
-                        <p>five5barber@gmail.com</p>
-                        <p>1341234321423</p>
-                </div>
                 </div>
         </section>
         </footer>

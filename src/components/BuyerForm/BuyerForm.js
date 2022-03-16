@@ -1,7 +1,6 @@
-import { addDoc, collection, getFirestore } from "firebase/firestore";
-import react from "react";
-import { useEffect, useState } from "react";
-import { db } from "../../firebase";
+import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
+import { useState } from "react";
+import { db} from "../../firebase";
 import { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
 import './BuyerForm.css'
@@ -12,7 +11,7 @@ export default function BuyerForm() {
     const [name, setName] = useState("")
     const [adress, setAdress] = useState("")
     const [email, setEmail] = useState("")
-    const [number, setNumber] = useState(0)
+    const [number, setNumber] = useState('')
     const [finish, setFinish] = useState(false)
     const [idOrder, setidOrder] = useState()
 
@@ -29,9 +28,19 @@ export default function BuyerForm() {
         setNumber(event.target.value)
     }
 
+    function updateStock(cart) {
+
+        cart.map((product) => {
+            const docRef = doc(db, 'items', product.id)
+            updateDoc(docRef, {stock : product.stock - product.quantity})
+        })
+    }
+
   
     function submit(event) {
         event.preventDefault()
+
+        updateStock(cart)
 
         const ordersCollection = collection(db, "orders")
 
@@ -43,6 +52,8 @@ export default function BuyerForm() {
             cart,
             finalPrice
         }
+
+
 
         addDoc(ordersCollection, newOrder)
         .then(doc => {
@@ -60,11 +71,12 @@ export default function BuyerForm() {
 
     return (
         <div className="main-container">
+            <h1 className="title-form">Finaliza tu compra</h1>
             { 
              !finish ? <div>{cart.map((product) => {
                 return (
                     <>
-                        <h1>Finaliza tu compra</h1>
+                        
                         <div className="product" key={product.id}>
                             <img src={product.image}/>
                             <h3>{product.title}</h3>
@@ -76,13 +88,13 @@ export default function BuyerForm() {
                     </>  
                 ) 
                 }) }     
-                <div className="form-conteiner">
-                <form onSubmit={submit}className="form">
+                <div className="form-container">
+                <form onSubmit={submit} className="form">
                 <input value={name} required onChange={nameChange} className="input-order" placeholder="Nombre completo"></input>
                 <input value={adress} required onChange={adressChange} className="input-order" placeholder="Direccion"></input>
                 <input value={email} required onChange={emailChange} className="input-order" placeholder="Email"></input>
                 <input value={number} required onChange={numberChange} className="input-order" placeholder="Telefono"></input>
-                <button type="submit">Enviar</button>
+                <button type="submit" className="form-button">Enviar</button>
                 </form>
                 </div>      
                 </div>             

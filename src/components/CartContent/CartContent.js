@@ -4,7 +4,7 @@ import { useContext, useEffect, useState, memo} from "react";
 import { cartContext } from "../../context/cartContext";
 import { Link } from "react-router-dom";
 
-const CartContent = memo(() => {
+const CartContent = () => {
     const {cart, removeProduct, clearCart, totalQuantity, finalPrice} = useContext(cartContext)
 
     return (
@@ -26,7 +26,7 @@ const CartContent = memo(() => {
         )            
           })
       }
-      <div className="finalprice"> Precio total : {finalPrice}</div>
+      <div className="finalprice"> Precio total : ${finalPrice}</div>
       <div className='cart-button'> 
         <Link to={'/endbuy'}>
         <button className="button" id="addtocart"> Terminar compra </button>
@@ -35,7 +35,7 @@ const CartContent = memo(() => {
       </div>
     </div>
     </div>)
-}, (oldProp, newProp) => oldProp.cart.length === newProp.cart.length)
+}
 
 
 

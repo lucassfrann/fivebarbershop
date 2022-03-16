@@ -20,7 +20,7 @@ export default function ItemDetailContainer({onAdd}) {
     }, [productId])
 
     return (
-        <div className="detailcontainer">
+        <div>
             <ItemDetail product={product} onAdd={onAdd}/>
         </div>
     )

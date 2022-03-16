@@ -1,4 +1,5 @@
 import {createContext, useState, useEffect} from "react";
+import Cart from "../components/Cart/Cart";
 
 export const cartContext = createContext([]);
 
@@ -8,13 +9,21 @@ export default function CartContextProvider({children}) {
     const [totalQuantity, setTotalQuantity] = useState(0)
 
     useEffect (() => {
+        if (localStorage.length > 0) {
+            console.log('Encuentro localStorage')
+            let productStorage = JSON.parse(localStorage.getItem('Cart'))
+            productStorage.forEach((product)=> {console.log(product)})
+            
+        }
+    }, [])
+
+    useEffect (() => {
         finalQuantity(cart)
     }, [cart])
 
     useEffect(() => {
         let totalprice = cart.map(product => product.price * product.quantity).reduce((a, b) => a + b, 0)
-        setFinalPrice(totalprice)
-        console.log(finalPrice)  
+        setFinalPrice(totalprice) 
       },[cart])
 
     const isOnCart = (id) => {
@@ -36,6 +45,9 @@ export default function CartContextProvider({children}) {
       
     } else {
         setCart([...cart, {...product, quantity}]);
+        console.log(cart)
+        let cartJSON = JSON.stringify(cart)
+        localStorage.setItem('Cart', cartJSON)
 
     }   
 }

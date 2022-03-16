@@ -1,5 +1,7 @@
 .cart-title {
   text-align: center;
+  font-family: Oswald;
+  font-weight: bold;
 }
 
 .cart-content {
@@ -10,6 +12,49 @@
   margin: 200px;
   margin-top: 50px;
   border: 0.5px solid black;
+  font-family: Oswald;
+}
+
+.alert {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 50px;
+  font-family: Oswald;
+  position: relative;
+}
+
+.alert img {
+  max-width: 256px;
+  max-height: 256px;
+}
+
+.alert-button {
+  margin: 50px;
+  appearance: none;
+  background-color: black;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 .categorys {

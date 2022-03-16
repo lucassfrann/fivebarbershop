@@ -9,7 +9,7 @@ export default function NavBar() {
     <header className='header'>
         <div className='header-container'>
             <div className='header-logo'>
-                <Link to={'/'} className="header-logo">
+                <Link to={'/login'} className="header-logo">
                 <h1 className="logo">Five Barber</h1>
                 </Link>   
             </div>

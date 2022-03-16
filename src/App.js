@@ -8,17 +8,20 @@ import CartContextProvider from './context/cartContext';
 import Cart from './components/Cart/Cart';
 import BuyerForm from './components/BuyerForm/BuyerForm';
 import Footer from './components/Footer/Footer';
+import Auth from './components/Auth/Auth';
+import AuthContextProvider, {authContext} from './context/authContext'
 
 function App() {
   function onAdd() {
     console.log('Producto añadido')
   }
   return (
+    <AuthContextProvider>
     <CartContextProvider>
-      {console.log(cartContext)}
     <BrowserRouter>
     <div className='app'>
       <NavBar /> 
+      <div className='body'>
       <Routes>
         <Route 
         path='/'
@@ -44,12 +47,13 @@ function App() {
         path='/cart'
         element={<Cart/> }
         />
-
       </Routes>
+      </div>
       <Footer/>
     </div>
     </BrowserRouter>
     </CartContextProvider>
+    </AuthContextProvider>
   )
 }
 
